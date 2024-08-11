@@ -1,23 +1,27 @@
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 
-export const ContactUs = () => {
-  const refForm = useRef();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    
-     const serviceId =  'service_fayk1hj';
-      const templateID = 'template_5e9osht';
-      const publicKey = 'ATNa9hCpUCnemBxjE'
-
-      emailjs.sendForm(serviceId, templateID, refForm.current, publicKey)
-        .then( result => console.log(result.text))
-        .catch( error => console.log(error))
-      
-   
-  };
+  export const ContactUs = () => {
+    const form = useRef();
+  
+    const sendEmail = (e) => {
+      e.preventDefault();
+  
+      emailjs
+        .sendForm('service_fayk1hj', 'template_5e9osht', form.current, {
+          publicKey: 'ATNa9hCpUCnemBxjE',
+        })
+        .then(
+          () => {
+            console.log('SUCCESS!');
+          },
+          (error) => {
+            console.log('FAILED...', error.text);
+          },
+        );
+        e.target.reset()
+    };
 
   return (
 
@@ -26,21 +30,21 @@ export const ContactUs = () => {
     <div className="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 mb-12">
         <div className="bg-white w-full shadow rounded p-8 sm:p-12 -mt-72">
             <p className="text-3xl font-bold leading-7 text-center">Contacto</p>
-            <form onSubmit={handleSubmit} ref={refForm}  action="">
+            <form onSubmit={sendEmail} ref={form}  action="">
                 <div className="md:flex items-center mt-12">
                     <div className="w-full md:w-1/2 flex flex-col">
                         <label className="font-semibold leading-none">Nombre</label>
-                        <input id='name' name='name' required type="text" className="leading-none text-black p-3 focus:outline-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200" />
+                        <input id='name' name='user_name' required type="text" className="leading-none text-black p-3 focus:outline-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200" />
                     </div>
                     <div class="w-full md:w-1/2 flex flex-col md:ml-6 md:mt-0 mt-4">
-                        <label className="font-semibold leading-none">telefono</label>
-                        <input id='phone' name='phone'  type="numeric" className="leading-none text-black p-3 focus:outline-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"/>
+                        <label className="font-semibold leading-none">Asunto</label>
+                        <input id='phone' name='subject'  type="numeric" className="leading-none text-black p-3 focus:outline-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"/>
                     </div>
                 </div>
                 <div class="md:flex items-center mt-8">
                     <div className="w-full flex flex-col">
                         <label className="font-semibold leading-none">Correo</label>
-                        <input id='email' name='email' required type="email" className="leading-none text-black p-3 focus:outline-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"/>
+                        <input id='email' name='user_email' required type="email" className="leading-none text-black p-3 focus:outline-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"/>
                     </div>
                     
                 </div>
