@@ -1,21 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import ContactUs from '../components/Contacto'
 
 ---
 
-<Layout title="contacto" description="formulario de contacto">
-
-  
   <Layout title="Eurorack - contacto" description="Contactanos">
     <!-- component -->
  
      <section class="min-h-screen flex items-stretch text-white ">
          <div class="lg:flex w-1/2 sm-none hidden bg-gray-500 bg-no-repeat bg-cover relative items-center" style="background-image: url('/nosotros.png');">
              <div class="absolute bg-black opacity-60 inset-0 z-0"></div>
-             <div class="w-full px-24 z-10">
+             <!--<div class="w-full px-24 z-10">
                  <h1 class="text-5xl font-bold text-left tracking-wide">Te brindamos el mejor servicio</h1>
                  <p class="text-3xl my-4">.</p>
-             </div>
+             </div> -->
             
          </div>
          <div class="lg:w-1/2 w-full flex items-center justify-center text-center md:px-16 px-0 z-0" style="background-color: #rgb(242, 15, 15)">
@@ -26,10 +24,9 @@ import Layout from '../layouts/Layout.astro'
                  <p class="text-gray-100 font-bold text-xl">
                     Contactanos
                  </p>
-                 
+                 <ContactUs/>
                 
              </div>
          </div>
      </section>
  </Layout>
-</Layout>
