@@ -1,70 +1,54 @@
 import {useRef} from 'react';
 import emailjs from '@emailjs/browser';
 
-export const ContactUs = () => {
+const ContactFormReact = () => {
     const form = useRef();
   
     const sendEmail = (e) => {
       e.preventDefault();
-  
       emailjs
-        .sendForm('service_fayk1hj', 'template_5e9osht', form.current, {
-          publicKey: 'ATNa9hCpUCnemBxjE',
-        })
+        .sendForm(
+          process.env.service_fayk1hj,
+          process.env.template_5e9osht,
+          form.current,
+          process.env.ATNa9hCpUCnemBxjE
+        )
         .then(
-          () => {
-            console.log('SUCCESS!');
-            alert('Email sent successfully!');
+          (result) => {
+            document.getElementById('result').innerHTML = 'Mensaje enviado con exito!';
+            console.log(result.text);
           },
           (error) => {
-            console.log('FAILED...', error.text);
-            alert('Failed to send email. Please try again later.');
-          },
+            document.getElementById('result').innerHTML = 'Error al enviar su mensaje.';
+            console.log(error.text);
+          }
         );
-      e.target.reset();
     };
   
 
   return (
 
-<div className="w-full">
-    <div className=" h-96"></div>
-    <div className="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 mb-12">
-        <div className="bg-white w-full shadow rounded p-8 sm:p-12 -mt-72">
-            <p className="text-3xl font-bold leading-7 text-center">Contacto</p>
-            <form ref={form} onSubmit={sendEmail}  action="">
-                <div className="md:flex items-center mt-12">
-                    <fieldset className="w-full md:w-1/2 flex flex-col">
-                        <label className="font-semibold leading-none">Nombre
-                        <input id='name' name='user_name' required type="text" className="leading-none text-black p-3 focus:outline-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200" /></label>
-                    </fieldset>
-                    <fieldset class="w-full md:w-1/2 flex flex-col md:ml-6 md:mt-0 mt-4">
-                        <label className="font-semibold leading-none">Asunto
-                        <input id='phone' name='subject'  type="text" className="leading-none text-black p-3 focus:outline-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"/></label>
-                    </fieldset>
-                </div>
-                <div class="md:flex items-center mt-8">
-                    <fieldset className="w-full flex flex-col">
-                        <label className="font-semibold leading-none">Correo
-                        <input name='user_email' required type="email" className="leading-none text-black p-3 focus:outline-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"/></label>
-                    </fieldset>
-                    
-                </div>
-                <div>
-                    <fieldset className="w-full flex flex-col mt-8">
-                        <label className="font-semibold leading-none">Mensaje
-                        <textarea name='message' maxLength={500} required id='message' className="h-40 text-base leading-none text-black p-3 focus:oultine-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"></textarea></label>
-                    </fieldset>
-                </div>
-                <div className="flex items-center justify-center w-full">
-                    <button type='submit' className="mt-9 font-semibold leading-none text-white py-4 px-10 bg-blue-700 rounded hover:bg-blue-600 focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 focus:outline-none">
-                        Enviar mensaje
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+    <form class="max-w-md mx-auto p-4 pt-6 md:p-6 lg:p-12" ref={form}>
+    <h1 class="text-3xl font-bold mb-4">Contactanos</h1>
+    <label class="block mb-2">
+      <span class="text-gray-700">Nombre:</span>
+      <input type="text" name="user_name" class="block w-full p-2 pl-10 text-sm text-gray-700" required />
+    </label>
+    <label class="block mb-2">
+      <span class="text-gray-700">Asunto:</span>
+      <input type="text" name="subject" class="block w-full p-2 pl-10 text-sm text-gray-700" required />
+    </label>
+    <label class="block mb-2">
+      <span class="text-gray-700">Email:</span>
+      <input type="email" name="user_email" class="block w-full p-2 pl-10 text-sm text-gray-700" required />
+    </label>
+    <label class="block mb-2">
+      <span class="text-gray-700">Mensaje:</span>
+      <textarea name="message" class="block w-full p-2 pl-10 text-sm text-gray-700" required></textarea>
+    </label>
+    <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded" type="submit" onClick={sendEmail}>Send</button>
+    <div class="text-sm text-gray-600 mt-2" id="result"></div>
+  </form>
   );
 };
-export default ContactUs;
+export default ContactFormReact;
