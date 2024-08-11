@@ -46,7 +46,7 @@ const ContactFormReact = () => {
       <span class="text-gray-700">Mensaje:</span>
       <textarea name="message" class="block w-full p-2 pl-10 text-sm text-gray-700" required></textarea>
     </label>
-    <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded" type="submit" onClick={sendEmail}>Send</button>
+    <button class="bg-blue-700 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded" type="submit" onClick={sendEmail}>Enviar</button>
     <div class="text-sm text-gray-600 mt-2" id="result"></div>
   </form>
   );
