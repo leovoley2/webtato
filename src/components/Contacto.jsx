@@ -7,13 +7,22 @@ const ContactFormReact = () => {
   
     const sendEmail = (e) => {
         e.preventDefault();
+        // Recoge los valores de los campos del formulario
+        const userName = form.current.elements.user_name.value;
+        const userEmail = form.current.elements.user_email.value;
+        const subject = form.current.elements.subject.value;
+        const message = form.current.elements.message.value;
+      
+        // Define los parámetros de la plantilla
+        const templateParams = {
+          from_name: userName,
+          from_email: userEmail,
+          subject: subject,
+          message: message,
+        };
+      
         emailjs
-          .sendForm(
-            process.env.REACT_APP_SERVICE_ID,
-            process.env.REACT_APP_TEMPLATE_ID,
-            form.current,
-            process.env.REACT_APP_USER_ID
-          )
+          .send(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID, templateParams, process.env.REACT_APP_USER_ID)
           .then(
             (result) => {
               document.getElementById('result').innerHTML = 'Mensaje enviado con éxito!';
