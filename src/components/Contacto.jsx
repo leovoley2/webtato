@@ -1,8 +1,7 @@
-import React, { useRef } from 'react';
+import {useRef} from 'react';
 import emailjs from '@emailjs/browser';
 
-
-  export const ContactUs = () => {
+export const ContactUs = () => {
     const form = useRef();
   
     const sendEmail = (e) => {
@@ -15,13 +14,16 @@ import emailjs from '@emailjs/browser';
         .then(
           () => {
             console.log('SUCCESS!');
+            alert('Email sent successfully!');
           },
           (error) => {
             console.log('FAILED...', error.text);
+            alert('Failed to send email. Please try again later.');
           },
         );
-        e.target.reset()
+      e.target.reset();
     };
+  
 
   return (
 
@@ -30,28 +32,28 @@ import emailjs from '@emailjs/browser';
     <div className="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 mb-12">
         <div className="bg-white w-full shadow rounded p-8 sm:p-12 -mt-72">
             <p className="text-3xl font-bold leading-7 text-center">Contacto</p>
-            <form onSubmit={sendEmail} ref={form}  action="">
+            <form ref={form} onSubmit={sendEmail}  action="">
                 <div className="md:flex items-center mt-12">
                     <fieldset className="w-full md:w-1/2 flex flex-col">
-                        <label className="font-semibold leading-none">Nombre</label>
-                        <input id='name' name='user_name' required type="text" className="leading-none text-black p-3 focus:outline-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200" />
+                        <label className="font-semibold leading-none">Nombre
+                        <input id='name' name='user_name' required type="text" className="leading-none text-black p-3 focus:outline-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200" /></label>
                     </fieldset>
                     <fieldset class="w-full md:w-1/2 flex flex-col md:ml-6 md:mt-0 mt-4">
-                        <label className="font-semibold leading-none">Asunto</label>
-                        <input id='phone' name='subject'  type="text" className="leading-none text-black p-3 focus:outline-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"/>
+                        <label className="font-semibold leading-none">Asunto
+                        <input id='phone' name='subject'  type="text" className="leading-none text-black p-3 focus:outline-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"/></label>
                     </fieldset>
                 </div>
                 <div class="md:flex items-center mt-8">
                     <fieldset className="w-full flex flex-col">
-                        <label className="font-semibold leading-none">Correo</label>
-                        <input name='user_email' required type="email" className="leading-none text-black p-3 focus:outline-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"/>
+                        <label className="font-semibold leading-none">Correo
+                        <input name='user_email' required type="email" className="leading-none text-black p-3 focus:outline-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"/></label>
                     </fieldset>
                     
                 </div>
                 <div>
                     <fieldset className="w-full flex flex-col mt-8">
-                        <label className="font-semibold leading-none">Mensaje</label>
-                        <textarea name='message' maxLength={500} required id='message' className="h-40 text-base leading-none text-black p-3 focus:oultine-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"></textarea>
+                        <label className="font-semibold leading-none">Mensaje
+                        <textarea name='message' maxLength={500} required id='message' className="h-40 text-base leading-none text-black p-3 focus:oultine-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"></textarea></label>
                     </fieldset>
                 </div>
                 <div className="flex items-center justify-center w-full">
