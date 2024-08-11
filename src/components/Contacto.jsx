@@ -42,7 +42,7 @@ const ContactFormReact = () => {
     <h1 class="text-3xl font-bold mb-4">Contactanos</h1>
     <label class="block mb-2">
       <span class="text-gray-700">Nombre:</span>
-      <input type="text" name="user_name" class="block w-full p-2 pl-10 text-sm text-gray-700" required />
+      <input type="text" name="username" class="block w-full p-2 pl-10 text-sm text-gray-700" required />
     </label>
     <label class="block mb-2">
       <span class="text-gray-700">Asunto:</span>
@@ -50,7 +50,7 @@ const ContactFormReact = () => {
     </label>
     <label class="block mb-2">
       <span class="text-gray-700">Email:</span>
-      <input type="email" name="user_email" class="block w-full p-2 pl-10 text-sm text-gray-700" required />
+      <input type="email" name="useremail" class="block w-full p-2 pl-10 text-sm text-gray-700" required />
     </label>
     <label class="block mb-2">
       <span class="text-gray-700">Mensaje:</span>
