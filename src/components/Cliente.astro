@@ -1,24 +1,30 @@
 <section class="bg-blue-700">
-    <div class=" px-3 py-14 mx-auto lg:px-16">
-       <h2 class="text-center font-bold text-black mb-4">Nuestros clientes</h2>
-        <div class="mx-auto text-center">
-            <div class="grid grid-cols-5 gap-4 mx-auto lg:grid-cols-5">
-                <div>
-                    <img class="h-4 mx-auto lg:h-12" src="/images.png" alt="Figma">
-                </div>
-                <div>
-                    <img class="h-4 mx-auto lg:h-12" src="/images.png" alt="Framer">
-                </div>
-                <div>
-                    <img class="h-4 mx-auto lg:h-12" src="/images.png" alt="Sketch ">
-                </div>
-                <div>
-                    <img class="h-4 mx-auto lg:h-12" src="/images.png" alt="Sketch ">
-                </div>
-                <div>
-                    <img class="h-4 mx-auto lg:h-12" src="/images.png" alt="Invision">
-                </div>
-            </div>
+    <div class="bg-gray-100 py-10">
+        <div class="overflow-hidden whitespace-nowrap">
+          <div class="inline-block animate-scroll">
+            <img src="https://via.placeholder.com/150" alt="Logo 1" class="inline-block mx-4 h-20">
+            <img src="https://via.placeholder.com/150" alt="Logo 2" class="inline-block mx-4 h-20">
+            <img src="https://via.placeholder.com/150" alt="Logo 3" class="inline-block mx-4 h-20">
+            <img src="https://via.placeholder.com/150" alt="Logo 4" class="inline-block mx-4 h-20">
+            <img src="https://via.placeholder.com/150" alt="Logo 5" class="inline-block mx-4 h-20">
+            <img src="https://via.placeholder.com/150" alt="Logo 6" class="inline-block mx-4 h-20">
+          </div>
         </div>
-    </div>
+      </div>
+      
+      <style>
+        @keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 15s linear infinite;
+}
+
+      </style>
 </section>
