@@ -1,0 +1,42 @@
+---
+import { FaMapMarkerAlt } from 'react-icons/fa';
+---
+
+<section id="location" class="bg-gray-100 py-16">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-semibold text-gray-800">Nuestra Ubicación</h2>
+      <p class="text-gray-600 mt-4">
+        Encuéntranos en el mapa y ven a visitarnos en nuestra ubicación física.
+      </p>
+    </div>
+
+    <div class="flex flex-col md:flex-row items-center md:space-x-8">
+      <!-- Mapa de Google -->
+      <div class="w-full md:w-1/2 h-80 mb-8 md:mb-0">
+        <iframe
+          class="w-full h-full rounded-lg shadow-lg"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345097373!2d144.9537353154078!3d-37.81720974202174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d0f9f57a01e1!2sFederation%20Square!5e0!3m2!1sen!2sau!4v1611039088977!5m2!1sen!2sau"
+          allowfullscreen=""
+          loading="lazy">
+        </iframe>
+      </div>
+
+      <!-- Información de contacto -->
+      <div class="w-full md:w-1/2 text-center md:text-left">
+        <h3 class="text-2xl font-semibold text-gray-800 flex items-center justify-center md:justify-start">
+          <FaMapMarkerAlt class="mr-2 text-red-500" /> Dirección
+        </h3>
+        <p class="text-gray-600 mt-4">
+          Calle Falsa 123, Ciudad Ejemplo, País Ficticio
+        </p>
+        <p class="text-gray-600 mt-2">
+          Teléfono: +123 456 7890
+        </p>
+        <p class="text-gray-600 mt-2">
+          Email: contacto@tuempresa.com
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
