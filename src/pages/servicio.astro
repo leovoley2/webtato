@@ -64,7 +64,7 @@ import Layout from "../layouts/Layout.astro";
                             <div class="max-w-5xl mx-auto h-full flex items-center">
                                 <div class="w-full max-h-full rounded-3xl shadow-2xl aspect-video bg-black overflow-hidden" @click.outside="modalOpen = false" @keydown.escape.window="modalOpen = false">
                                     <video x-init="$watch('modalOpen', value => value ? $el.play() : $el.pause())" width="1920" height="1080" loop controls>
-                                        <source src="/public/1.mp4" type="video/mp4" />
+                                        <source src="/1.mp4" type="video/mp4" />
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
